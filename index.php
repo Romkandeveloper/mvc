@@ -1,10 +1,19 @@
 <?php
 
- require 'src/lib/Dev.php';
- echo 'init';
+require 'src/lib/Dev.php';
 
- $arr = [1,2,3];
+use src\core\Router;
 
- debug($arr);
+spl_autoload_register(function ($class)
+{
+    $path = str_replace('\\', '/', $class . '.php');
+    if (file_exists($path))
+    {
+        require $path;
+    }
+});
+
+$router = new Router;
 
 ?>
+
