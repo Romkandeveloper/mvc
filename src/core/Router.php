@@ -52,17 +52,17 @@
                     }
                     else
                     {
-                        echo 'Не найден екшен';
+                        View::errorCode(404);
                     }
                 }
                 else
                 {
-                    echo 'Не найден контроллер';
+                    View::errorCode(404);
                 }
             }
             else
             {
-                echo 'Route was not found';
+                View::errorCode(404);
             }
         }
     }
