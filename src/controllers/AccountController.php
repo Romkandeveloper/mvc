@@ -2,12 +2,10 @@
 
 namespace src\controllers;
 
-class AccountController
+use src\core\Controller;
+
+class AccountController extends Controller
 {
-    public function __construct()
-    {
-        //
-    }
 
     public function loginAction()
     {
