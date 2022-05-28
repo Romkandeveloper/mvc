@@ -1,12 +1,12 @@
 <?php
 return [
-    'account/login' => [
-        'controller' => 'account',
-        'action'     => 'login',
+    '' => [
+        'controller' => 'conference',
+        'action'     => 'list',
     ],
 
-    'account/register' => [
-        'controller' => 'account',
+    'conferences/register' => [
+        'controller' => 'conference',
         'action'     => 'register',
     ],
 

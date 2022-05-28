@@ -16,16 +16,22 @@ class Db
 
     public function query($sql, $params = [])
     {
-        $stmt = $this->db->prepare($sql);
+        $smtp = null;
         if(!empty($params))
         {
+            $stmt = $this->db->prepare($sql);
             foreach ($params as $key => $val)
             {
                 $stmt->bindValue(':'.$key, $val);
             }
+            $stmt->execute();
         }
-        $stmt->execute();
-        return $stmt->fetch();
+        else
+        {
+            $smtp = $this->db->query($sql);
+        }
+
+        return $smtp->fetch();
     }
 }
 
