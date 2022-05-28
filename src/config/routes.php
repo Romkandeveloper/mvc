@@ -1,7 +1,7 @@
 <?php
 return [
     'account/login' => [
-        'controller' => 'test',
+        'controller' => 'account',
         'action'     => 'login',
     ],
 
