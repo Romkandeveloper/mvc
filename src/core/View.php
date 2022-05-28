@@ -29,16 +29,17 @@ class View
             }
             else
             {
-                echo 'Layout not found';
+                self::errorCode(404);
             }
         }
         else
         {
-            echo 'View not found';
+            self::errorCode(404);
         }
 
     }
 
+    //should replace
     public function redirect($url)
     {
         header('location: '.$url);
@@ -47,8 +48,12 @@ class View
 
     public static function errorCode($code)
     {
-        http_response_code($code);
-        require 'src/views/errors/'.$code.'.php';
+        $path = 'src/views/errors/'.$code.'.php';
+        if(file_exists($path))
+        {
+            http_response_code($code);
+            require 'src/views/errors/'.$code.'.php';
+        }
         exit;
     }
 }
