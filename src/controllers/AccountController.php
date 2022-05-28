@@ -9,7 +9,7 @@ class AccountController extends Controller
 
     public function loginAction()
     {
-        echo 'Страница входа';
+        $this->view->render('Hi');
     }
 
     public function registerAction()
