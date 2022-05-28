@@ -9,14 +9,7 @@ class AccountController extends Controller
 {
     public function loginAction()
     {
-        $db = new Db;
-
-        $params = [
-          'id' => 2,
-        ];
-
-        $data = $db->query('SELECT name FROM users WHERE id = 1', $params);
-        $vars = []; //example
+        $vars = $this->model->getNews();
         $this->view->render('login',$vars);
     }
 

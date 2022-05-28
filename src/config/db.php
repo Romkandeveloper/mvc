@@ -2,9 +2,9 @@
 
 return [
     'host' => 'localhost',
-    'dbname' => '...',
-    'password' => '...',
-    'user' => '...',
+    'dbname' => 'conferences',
+    'password' => '',
+    'user' => 'root',
 ];
 
 ?>
