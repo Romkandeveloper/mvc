@@ -10,11 +10,8 @@ class ConferenceController extends Controller
     public function listAction()
     {
         $vars = $this->model->getAllConferences();
-        echo $vars;
         $this->view->render('Conferences', $vars);
     }
-
-
 }
 
 ?>

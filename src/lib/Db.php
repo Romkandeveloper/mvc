@@ -31,7 +31,7 @@ class Db
             $smtp = $this->db->query($sql);
         }
 
-        return $smtp->fetch();
+        return $smtp->fetchAll();
     }
 }
 

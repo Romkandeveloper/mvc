@@ -16,7 +16,7 @@ class View
 
     public function render($title, $vars = [])
     {
-        extract($vars);
+        //extract($vars);
         if(file_exists('src/views/'.$this->path.'.php'))
         {
             ob_start();

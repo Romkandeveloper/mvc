@@ -5,7 +5,7 @@ return [
         'action'     => 'list',
     ],
 
-    'conferences/register' => [
+    'conference/register' => [
         'controller' => 'conference',
         'action'     => 'register',
     ],
