@@ -53,6 +53,13 @@ class Conference extends Model
         return $conference;
     }
 
+    static function deleteConference($id)
+    {
+        $params = ['id' => $id];
+        $db = new Db;
+        $db->query('DELETE FROM conferences WHERE id = :id', $params);
+    }
+
     static function getAllConferences()
     {
         $db = new Db;

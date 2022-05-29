@@ -9,5 +9,6 @@
 <body>
     <?php require 'src/views/components/header.php' ?>
     <?php echo $content; ?>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2KuPasVz8yDJbNmtCoYaH7y8dkDhA45c&callback=initMap"></script>
 </body>
 </html>

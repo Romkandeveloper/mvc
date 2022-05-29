@@ -21,6 +21,13 @@ class ConferenceController extends Controller
         $conference = Conference::getConference($conferenceId);
         $this->view->render('Conferences | '.$conference->getTitle() ,$conference);
     }
+
+    public function deleteAction()
+    {
+        $conferenceId = $_GET['id'];
+        Conference::deleteConference($conferenceId);
+        $this->view->redirect('/');
+    }
 }
 
 ?>
