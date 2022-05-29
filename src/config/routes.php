@@ -4,15 +4,15 @@ return [
         'controller' => 'conference',
         'action'     => 'list',
     ],
-
-    'conference/register' => [
+    'conference' => [
         'controller' => 'conference',
-        'action'     => 'register',
+        'action'     => 'index',
     ],
+    'edit' => [
 
-    'news/show' => [
-        'controller' => 'news',
-        'action'     => 'show',
+    ],
+    'create' => [
+
     ]
 ];
 ?>
