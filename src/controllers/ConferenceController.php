@@ -14,6 +14,13 @@ class ConferenceController extends Controller
         $conferences = Conference::getAllConferences();
         $this->view->render('Conferences', $conferences);
     }
+
+    public function indexAction()
+    {
+        $conferenceId = $_GET['id'];
+        $conference = Conference::getConference($conferenceId);
+        $this->view->render($conference->getTitle() ,$conference);
+    }
 }
 
 ?>

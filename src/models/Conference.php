@@ -44,11 +44,13 @@ class Conference extends Model
         return $this->longitude;
     }
 
-    public function getConference($id)
+    static function getConference($id)
     {
         $params = ['id' => $id];
-        $data = $this->db->query('SELECT * FROM conference WHERE id = :id', $params);
-        return $data;
+        $db = new Db;
+        $data = $db->query('SELECT * FROM conferences WHERE id = :id', $params);
+        $conference = self::setConferenceModel($data[0]);
+        return $conference;
     }
 
     static function getAllConferences()
@@ -56,24 +58,26 @@ class Conference extends Model
         $db = new Db;
         $data = $db->query('SELECT * FROM conferences');
         $models = [];
+
         foreach ($data as $row)
         {
-            $conference = new Conference();
-            $conference->id = $row['id'];
-            $conference->title = $row['title'];
-            $conference->country = $row['country'];
-            $conference->date = $row['date'];
-            $conference->latitudo = $row['latitudo'];
-            $conference->longitude = $row['longitude'];
-
-            $models[] = $conference;
+            $models[] = self::setConferenceModel($row);
         }
+
         return $models;
     }
 
-    public function createConference()
+    private static function setConferenceModel($row)
     {
+        $conference = new Conference();
+        $conference->id = $row['id'];
+        $conference->title = $row['title'];
+        $conference->country = $row['country'];
+        $conference->date = $row['date'];
+        $conference->latitudo = $row['latitudo'];
+        $conference->longitude = $row['longitude'];
 
+        return $conference;
     }
 }
 

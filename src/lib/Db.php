@@ -19,12 +19,12 @@ class Db
         $smtp = null;
         if(!empty($params))
         {
-            $stmt = $this->db->prepare($sql);
+            $smtp = $this->db->prepare($sql);
             foreach ($params as $key => $val)
             {
-                $stmt->bindValue(':'.$key, $val);
+                $smtp->bindValue(':'.$key, $val);
             }
-            $stmt->execute();
+            $smtp->execute();
         }
         else
         {
