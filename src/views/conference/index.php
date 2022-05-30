@@ -7,15 +7,19 @@
             <div class="col-6 d-flex align-items-center justify-content-center py-4 mx-auto">
                 <div>
                     <h5 class="card-title"><?php echo($vars->getTitle()) ?></h5>
-                    <p class="card-text"><?php echo 'Latitudo: '.($vars->getLatitudo()); echo '  Longitude '.($vars->getLongitude())?></p>
+                    <?php if ($vars->getLatitudo()): ?>
+                        <p class="card-text"><?php echo 'Latitudo: '.($vars->getLatitudo()); echo '  Longitude '.($vars->getLongitude())?></p>
+                    <?php endif; ?>
                     <button id="delete-btn" data-conference=<?php echo $vars->getId() ?> class="btn btn-danger">Delete</button>
                 </div>
             </div>
-            <div class="col-6 my-2">
-                <div class="h-100">
-                    <div id="map" class="w-100" style="height: 300px"></div>
+            <?php if ($vars->getLatitudo()): ?>
+                <div class="col-6 my-2">
+                    <div class="h-100">
+                        <div id="map" class="w-100" style="height: 300px"></div>
+                    </div>
                 </div>
-            </div>
+            <?php endif; ?>
         </div>
         <div class="card-footer text-muted">
             <?php echo($vars->getDate()) ?>
