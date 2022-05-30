@@ -12,7 +12,8 @@ return [
 
     ],
     'create' => [
-
+        'controller' => 'conference',
+        'action'     => 'createView',
     ]
 ];
 ?>

@@ -22,6 +22,11 @@ class ConferenceController extends Controller
         $this->view->render('Conferences | '.$conference->getTitle() ,$conference);
     }
 
+    public function createViewAction()
+    {
+        $this->view->render('Conferences | Create');
+    }
+
     public function deleteAction()
     {
         $conferenceId = $_GET['id'];

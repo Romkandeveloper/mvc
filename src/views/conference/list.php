@@ -10,6 +10,6 @@
                 </div>
             </a>
         <?php endforeach; ?>
-        <button type="button" class="btn btn-success ml-auto">+ Create</button>
+        <a href="/create" type="button" class="btn btn-success ml-auto">+ Create</a>
     </div>
 </div>
