@@ -27,9 +27,16 @@ class ConferenceController extends Controller
         $this->view->render('Conferences | Create');
     }
 
-    public function deleteAction()
+    public function createConferenceAction()
     {
-        $conferenceId = $_GET['id'];
+        $data = $_POST;
+        $conference = Conference::createConference($data);
+        $this->view->redirect('/');
+    }
+
+    public function deleteConferenceAction()
+    {
+        $conferenceId = $_POST['id'];
         Conference::deleteConference($conferenceId);
         $this->view->redirect('/');
     }

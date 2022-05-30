@@ -1,12 +1,12 @@
 <div class="container">
-    <form>
+    <form id="create-form">
         <div class="card text-center">
             <div class="card-header row">
                 <div class="col-3 mx-auto">
-                    <select required class="custom-select custom-select-sm">
-                        <option selected value="1">Ukraine</option>
-                        <option value="2">Germany</option>
-                        <option value="3">Izrael</option>
+                    <select name="country" required class="custom-select custom-select-sm">
+                        <option selected value="Ukraine">Ukraine</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Izrael">Izrael</option>
                     </select>
                 </div>
             </div>
@@ -14,13 +14,13 @@
                 <div class="col-6 d-flex align-items-center justify-content-center py-4 mx-auto">
                     <div class="row col-12">
                         <div class="col-7 mx-auto">
-                            <input type="text" required class="form-control ds-input p-1 w-100" id="" placeholder="Title" style="position: relative; vertical-align: top;">
+                            <input type="text" name="title" required class="form-control ds-input p-1 w-100" id="" placeholder="Title" style="position: relative; vertical-align: top;">
                         </div>
                         <div class="col-6 mt-3">
                             <input type="number" name="latitude" min="-90" max="90" class="form-control ds-input p-1 w-100" id="" placeholder="Latitude" style="position: relative; vertical-align: top;">
                         </div>
                         <div class="col-6 mt-3">
-                            <input type="nuber" name="longitude" min="-180" max="180" class="form-control ds-input p-1 w-100" id="" placeholder="Longitude" style="position: relative; vertical-align: top;">
+                            <input type="number" name="longitude" min="-180" max="180" class="form-control ds-input p-1 w-100" id="" placeholder="Longitude" style="position: relative; vertical-align: top;">
                         </div>
                     </div>
                 </div>
@@ -105,4 +105,34 @@
             coordRows.latitudeRow.addEventListener('input', setMapMarker);
         }
     }
+
+    //form
+    const form = document.getElementById('create-form');
+    form && form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const formData = new FormData();
+        const rows = {
+            title: this.title.value,
+            country: this.country.value,
+            date: this.date.value,
+        };
+        if (this.latitude.value && this.longitude.value) {
+            rows['latitude'] =  this.latitude.value;
+            rows['longitude'] = this.longitude.value;
+        }
+
+        for (key in rows) {
+            formData.append(key, rows[key]);
+        }
+        const response = await fetch('/createConference', {
+            method: 'POST',
+            body: formData,
+        });
+        if (response.ok) {
+            window.location.href = '/';
+        } else {
+            alert("Ошибка HTTP: " + response.status);
+        }
+
+    });
 </script>

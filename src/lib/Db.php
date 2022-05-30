@@ -24,6 +24,7 @@ class Db
             {
                 $smtp->bindValue(':'.$key, $val);
             }
+
             $smtp->execute();
         }
         else

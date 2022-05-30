@@ -60,6 +60,21 @@ class Conference extends Model
         $db->query('DELETE FROM conferences WHERE id = :id', $params);
     }
 
+    static function createConference($data)
+    {
+        $params = $data;
+        $db = new Db;
+        if ($params['latitude'] && $params['longitude'])
+        {
+            $db->query('INSERT INTO conferences (title, country, latitudo, longitude, date) VALUES (:title, :country, :latitude, :longitude, :date)', $params);
+        }
+        else
+        {
+            $db->query('INSERT INTO conferences (title, country, date) VALUES (:title, :country,:date)', $params);
+        }
+
+    }
+
     static function getAllConferences()
     {
         $db = new Db;

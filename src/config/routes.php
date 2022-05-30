@@ -2,18 +2,26 @@
 return [
     '' => [
         'controller' => 'conference',
-        'action'     => 'list',
+        'action' => 'list',
     ],
     'conference' => [
         'controller' => 'conference',
-        'action'     => 'index',
+        'action' => 'index',
     ],
     'edit' => [
 
     ],
     'create' => [
         'controller' => 'conference',
-        'action'     => 'createView',
+        'action' => 'createView',
+    ],
+    'createConference' => [
+        'controller' => 'conference',
+        'action' => 'createConference',
+    ],
+    'deleteConference' => [
+        'controller' => 'conference',
+        'action' => 'deleteConference',
     ]
 ];
 ?>
