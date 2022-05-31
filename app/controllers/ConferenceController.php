@@ -19,7 +19,7 @@ class ConferenceController extends Controller
     {
         $conferenceId = $_GET['id'];
         $conference = Conference::getConference($conferenceId);
-        $this->view->render('Conferences | '.$conference->getTitle() ,$conference);
+        $this->view->render('Conferences | ' . $conference->getTitle(), $conference);
     }
 
     public function createViewAction()
@@ -55,5 +55,3 @@ class ConferenceController extends Controller
         $this->view->redirect('/');
     }
 }
-
-?>

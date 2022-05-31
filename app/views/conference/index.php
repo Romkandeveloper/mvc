@@ -41,3 +41,4 @@
     }
 </script>
 <script type="text/javascript" src="/public/scripts/delete.js"></script>
+<script async src="https://maps.googleapis.com/maps/api/js?key=<?php $apiKey = require $_SERVER['DOCUMENT_ROOT'].'/.env.php'; echo $apiKey['MAP_API_KEY']?>.&callback=initMap"></script>

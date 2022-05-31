@@ -17,13 +17,9 @@ abstract class Controller
 
     public function loadModel($name)
     {
-        $path = 'app\models\\'.ucfirst($name);
-        if(class_exists($path))
-        {
+        $path = 'app\models\\' . ucfirst($name);
+        if (class_exists($path)) {
             return new $path();
         }
     }
 }
-
-?>
-

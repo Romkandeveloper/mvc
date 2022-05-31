@@ -64,12 +64,9 @@ class Conference extends Model
     {
         $params = $data;
         $db = new Db;
-        if ($params['latitude'] && $params['longitude'])
-        {
+        if ($params['latitude'] && $params['longitude']) {
             $db->query('INSERT INTO conferences (title, country, latitudo, longitude, date) VALUES (:title, :country, :latitude, :longitude, :date)', $params);
-        }
-        else
-        {
+        } else {
             $db->query('INSERT INTO conferences (title, country, date) VALUES (:title, :country,:date)', $params);
         }
 
@@ -80,12 +77,9 @@ class Conference extends Model
         $params = $data;
         $params['id'] = $id;
         $db = new Db;
-        if ($params['latitude'] && $params['longitude'])
-        {
+        if ($params['latitude'] && $params['longitude']) {
             $db->query('UPDATE conferences SET title = :title, country = :country, latitudo = :latitude, longitude = :longitude, date = :date WHERE id = :id', $params);
-        }
-        else
-        {
+        } else {
             $db->query('UPDATE conferences SET title = :title, country = :country, date = :date WHERE id = :id', $params);
         }
     }
@@ -96,8 +90,7 @@ class Conference extends Model
         $data = $db->query('SELECT * FROM conferences');
         $models = [];
 
-        foreach ($data as $row)
-        {
+        foreach ($data as $row) {
             $models[] = self::setConferenceModel($row);
         }
 
@@ -117,5 +110,3 @@ class Conference extends Model
         return $conference;
     }
 }
-
-?>

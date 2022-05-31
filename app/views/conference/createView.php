@@ -49,3 +49,4 @@
 <script type="text/javascript" src="/public/scripts/calendar.js"></script>
 <script type="text/javascript" src="/public/scripts/map.js"></script>
 <script type="text/javascript" src="/public/scripts/create-edit.js"></script>
+<script async src="https://maps.googleapis.com/maps/api/js?key=<?php $apiKey = require $_SERVER['DOCUMENT_ROOT'].'/.env.php'; echo $apiKey['MAP_API_KEY']?>.&callback=initMap"></script>
