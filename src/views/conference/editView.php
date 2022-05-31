@@ -1,5 +1,5 @@
 <div class="container">
-    <form id="create-form" data-path="/editConference">
+    <form id="create-form" data-path="/editConference?id=<?php echo($vars->getId()) ?>">
         <div class="card text-center">
             <div class="card-header row">
                 <div class="col-3 mx-auto">

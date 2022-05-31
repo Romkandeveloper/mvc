@@ -75,6 +75,21 @@ class Conference extends Model
 
     }
 
+    static function updateConference($id, $data)
+    {
+        $params = $data;
+        $params['id'] = $id;
+        $db = new Db;
+        if ($params['latitude'] && $params['longitude'])
+        {
+            $db->query('UPDATE conferences SET title = :title, country = :country, latitudo = :latitude, longitude = :longitude, date = :date WHERE id = :id', $params);
+        }
+        else
+        {
+            $db->query('UPDATE conferences SET title = :title, country = :country, date = :date WHERE id = :id', $params);
+        }
+    }
+
     static function getAllConferences()
     {
         $db = new Db;

@@ -40,5 +40,4 @@
         });
     }
 </script>
-
 <script type="text/javascript" src="/public/scripts/delete.js"></script>
