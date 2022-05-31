@@ -10,7 +10,7 @@
                     <?php if ($vars->getLatitudo()): ?>
                         <p class="card-text"><?php echo 'Latitudo: '.($vars->getLatitudo()); echo '  Longitude '.($vars->getLongitude())?></p>
                     <?php endif; ?>
-                    <button id="delete-btn" data-conference=<?php echo $vars->getId() ?> class="btn btn-danger">Delete</button>
+                    <button data-conference=<?php echo $vars->getId() ?> class="delete-btn btn btn-danger">Delete</button>
                 </div>
             </div>
             <?php if ($vars->getLatitudo()): ?>
@@ -28,21 +28,6 @@
 </div>
 
 <script>
-    const deleteBtn = document.getElementById('delete-btn');
-    deleteBtn && deleteBtn.addEventListener('click', async function(e) {
-        const formData = new FormData();
-        formData.append('id', e.target.getAttribute('data-conference'));
-        let response = await fetch('/deleteConference', {
-            method: 'POST',
-            body: formData,
-        });
-        if (response.ok) {
-            window.location.href = '/';
-        } else {
-            alert("Ошибка HTTP: " + response.status);
-        }
-    });
-
     function initMap() {
         const uluru = { lat: <?php echo $vars->getLatitudo() ?>, lng: <?php echo $vars->getLongitude() ?>};
         const map = new google.maps.Map(document.getElementById("map"), {
@@ -55,3 +40,5 @@
         });
     }
 </script>
+
+<script type="text/javascript" src="/public/scripts/delete.js"></script>
