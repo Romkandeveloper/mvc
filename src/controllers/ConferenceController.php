@@ -34,6 +34,13 @@ class ConferenceController extends Controller
         $this->view->redirect('/');
     }
 
+    public function editViewAction()
+    {
+        $conferenceId = $_GET['id'];
+        $conference = Conference::getConference($conferenceId);
+        $this->view->render('Conferences | Edit', $conference);
+    }
+
     public function deleteConferenceAction()
     {
         $conferenceId = $_POST['id'];

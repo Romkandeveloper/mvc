@@ -9,7 +9,8 @@ return [
         'action' => 'index',
     ],
     'edit' => [
-
+        'controller' => 'conference',
+        'action' => 'editView',
     ],
     'create' => [
         'controller' => 'conference',
@@ -22,6 +23,10 @@ return [
     'deleteConference' => [
         'controller' => 'conference',
         'action' => 'deleteConference',
+    ],
+    'editConference' => [
+        'controller' => 'conference',
+        'action' => 'editConference',
     ]
 ];
 ?>

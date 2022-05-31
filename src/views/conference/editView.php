@@ -1,12 +1,13 @@
 <div class="container">
-    <form id="create-form" data-path="/createConference">
+    <form id="create-form" data-path="/editConference">
         <div class="card text-center">
             <div class="card-header row">
                 <div class="col-3 mx-auto">
                     <select name="country" required class="custom-select custom-select-sm">
-                        <option selected value="Ukraine">Ukraine</option>
-                        <option value="Germany">Germany</option>
-                        <option value="Izrael">Izrael</option>
+                        <!-- TODO: replace country-name to db -->
+                        <option <?php ($vars->getCountry() == 'Ukraine') ? print_r('selected') : null ?> value="Ukraine">Ukraine</option>
+                        <option <?php ($vars->getCountry() == 'Germany') ? print_r('selected') : null ?> value="Germany">Germany</option>
+                        <option <?php ($vars->getCountry() == 'Izrael') ? print_r('selected') : null ?> value="Izrael">Izrael</option>
                     </select>
                 </div>
             </div>
@@ -14,13 +15,13 @@
                 <div class="col-6 d-flex align-items-center justify-content-center py-4 mx-auto">
                     <div class="row col-12">
                         <div class="col-7 mx-auto">
-                            <input type="text" name="title" required class="form-control ds-input p-1 w-100" id="" placeholder="Title" style="position: relative; vertical-align: top;">
+                            <input value='<?php echo($vars->getTitle()) ?>' type="text" name="title" required class="form-control ds-input p-1 w-100" id="" placeholder="Title" style="position: relative; vertical-align: top;">
                         </div>
                         <div class="col-6 mt-3">
-                            <input type="number" name="latitude" maxlength="17" step=any min="-90" max="90" class="form-control ds-input p-1 w-100" id="" placeholder="Latitude" style="position: relative; vertical-align: top;">
+                            <input value='<?php echo($vars->getLatitudo()) ?>' type="number" name="latitude" maxlength="17" step=any min="-90" max="90" class="form-control ds-input p-1 w-100" id="" placeholder="Latitude" style="position: relative; vertical-align: top;">
                         </div>
                         <div class="col-6 mt-3">
-                            <input type="number" name="longitude" maxlength="18" step=any min="-180" max="180" class="form-control ds-input p-1 w-100" id="" placeholder="Longitude" style="position: relative; vertical-align: top;">
+                            <input value='<?php echo($vars->getLongitude()) ?>' type="number" name="longitude" maxlength="18" step=any min="-180" max="180" class="form-control ds-input p-1 w-100" id="" placeholder="Longitude" style="position: relative; vertical-align: top;">
                         </div>
                     </div>
                 </div>
@@ -31,7 +32,7 @@
                 </div>
             </div>
             <div class="card-footer text-muted">
-                <input type="text" required name="date" class="ds-input p-1" id="" placeholder="Date" style="position: relative; vertical-align: top;">
+                <input value='<?php echo($vars->getDate()) ?>' type="text" required name="date" class="ds-input p-1" id="" placeholder="Date" style="position: relative; vertical-align: top;">
             </div>
         </div>
 
