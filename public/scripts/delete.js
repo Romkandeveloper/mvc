@@ -1,7 +1,8 @@
 (function () {
     const deleteBtns = document.querySelectorAll('.delete-btn');
     deleteBtns && deleteBtns.forEach(item => {
-        item.addEventListener('click', async function(e) {
+        item.addEventListener('click', async function (e) {
+            e.preventDefault();
             const formData = new FormData();
             formData.append('id', e.target.getAttribute('data-conference'));
             let response = await fetch('/deleteConference', {

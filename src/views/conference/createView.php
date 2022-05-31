@@ -17,10 +17,10 @@
                             <input type="text" name="title" required class="form-control ds-input p-1 w-100" id="" placeholder="Title" style="position: relative; vertical-align: top;">
                         </div>
                         <div class="col-6 mt-3">
-                            <input type="number" name="latitude" min="-90" max="90" class="form-control ds-input p-1 w-100" id="" placeholder="Latitude" style="position: relative; vertical-align: top;">
+                            <input type="number" name="latitude" step="0.000000000000001" min="-90" max="90" class="form-control ds-input p-1 w-100" id="" placeholder="Latitude" style="position: relative; vertical-align: top;">
                         </div>
                         <div class="col-6 mt-3">
-                            <input type="number" name="longitude" min="-180" max="180" class="form-control ds-input p-1 w-100" id="" placeholder="Longitude" style="position: relative; vertical-align: top;">
+                            <input type="number" name="longitude" step="0.000000000000001" min="-180" max="180" class="form-control ds-input p-1 w-100" id="" placeholder="Longitude" style="position: relative; vertical-align: top;">
                         </div>
                     </div>
                 </div>
