@@ -1,4 +1,5 @@
 <?php
+
 return [
     '' => [
         'controller' => 'conference',
@@ -29,5 +30,3 @@ return [
         'action' => 'editConference',
     ]
 ];
-?>
-
