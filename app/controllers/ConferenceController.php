@@ -1,11 +1,11 @@
 <?php
 
-namespace src\controllers;
+namespace app\controllers;
 
-use src\core\Controller;
-use src\core\Model;
-use src\lib\Db;
-use src\models\Conference;
+use core\Controller;
+use core\Model;
+use app\lib\Db;
+use app\models\Conference;
 
 class ConferenceController extends Controller
 {

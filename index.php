@@ -1,8 +1,8 @@
 <?php
 
-require 'src/lib/Dev.php';
+require 'lib/Dev.php';
 
-use src\core\Router;
+use core\Router;
 
 spl_autoload_register(function ($class)
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace src\core;
+namespace core;
 
 class View
 {
@@ -17,15 +17,15 @@ class View
     public function render($title, $vars = [])
     {
         //extract($vars);
-        if(file_exists('src/views/'.$this->path.'.php'))
+        if(file_exists('app/views/'.$this->path.'.php'))
         {
             ob_start();
-            require 'src/views/'.$this->path.'.php';
+            require 'app/views/'.$this->path.'.php';
             $content = ob_get_clean();
 
-            if(file_exists('src/views/layouts/'.$this->layout.'.php'))
+            if(file_exists('app/views/layouts/'.$this->layout.'.php'))
             {
-                require 'src/views/layouts/'.$this->layout.'.php';
+                require 'app/views/layouts/'.$this->layout.'.php';
             }
             else
             {
@@ -48,11 +48,11 @@ class View
 
     public static function errorCode($code)
     {
-        $path = 'src/views/errors/'.$code.'.php';
+        $path = 'app/views/errors/'.$code.'.php';
         if(file_exists($path))
         {
             http_response_code($code);
-            require 'src/views/errors/'.$code.'.php';
+            require 'app/views/errors/'.$code.'.php';
         }
         exit;
     }

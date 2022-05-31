@@ -1,6 +1,6 @@
 <?php
 
-namespace src\lib;
+namespace lib;
 
 use PDO;
 
@@ -10,7 +10,7 @@ class Db
 
     public function __construct()
     {
-        $dbConfig = require 'src\config\db.php';
+        $dbConfig = require 'config\db.php';
         $this->db = new PDO('mysql:host='.$dbConfig['host'].';dbname='.$dbConfig['dbname'], $dbConfig['user'], $dbConfig['password']);
     }
 

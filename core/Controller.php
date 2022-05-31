@@ -1,6 +1,6 @@
 <?php
 
-namespace src\core;
+namespace core;
 
 abstract class Controller
 {
@@ -17,7 +17,7 @@ abstract class Controller
 
     public function loadModel($name)
     {
-        $path = 'src\models\\'.ucfirst($name);
+        $path = 'app\models\\'.ucfirst($name);
         if(class_exists($path))
         {
             return new $path();

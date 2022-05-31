@@ -1,9 +1,9 @@
 <?php
 
-namespace src\models;
+namespace app\models;
 
-use src\core\Model;
-use src\lib\db;
+use core\Model;
+use lib\db;
 
 class Conference extends Model
 {
